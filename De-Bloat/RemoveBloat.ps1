@@ -998,7 +998,7 @@ write-host "Removed"
 #                                           Windows CoPilot                                                #
 #                                                                                                          #
 ############################################################################################################
-$version = Get-CimInstance Win32_OperatingSystem | Select-Object -ExpandProperty Caption
+<#$version = Get-CimInstance Win32_OperatingSystem | Select-Object -ExpandProperty Caption
 if ($version -like "*Windows 11*") {
     write-host "Removing Windows Copilot"
 # Define the registry key and value
@@ -1090,12 +1090,12 @@ foreach ($sid in $UserSIDs) {
         Set-ItemProperty -Path $registryPath -Name $propertyName -Value $propertyValue
     }
 }
-}
+}#>
 ############################################################################################################
 #                                              Remove Recall                                               #  
 #                                                                                                          #
 ############################################################################################################
-
+<#
     #Turn off Recall
     Write-Host "Disabling Recall"
     $recall = "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsAI"
@@ -1120,7 +1120,7 @@ foreach ($sid in $UserSIDs) {
         Set-ItemProperty $recallusers DisableAIDataAnalysis -Value 1
     }
 
-
+#>
 ############################################################################################################
 #                                             Clear Start Menu                                             #
 #                                                                                                          #
